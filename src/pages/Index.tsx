@@ -5,7 +5,10 @@ import HeroSection from "@/components/HeroSection";
 import StudyDashboard from "@/components/StudyDashboard";
 import DocumentUploader from "@/components/DocumentUploader";
 import AIChatInterface from "@/components/AIChatInterface";
-import { Home, Upload, MessageSquare, BarChart3 } from "lucide-react";
+import LearningPlatform from "@/components/LearningPlatform";
+import AssessmentPlatform from "@/components/AssessmentPlatform";
+import AnalyticsDashboard from "@/components/AnalyticsDashboard";
+import { Home, Upload, MessageSquare, BarChart3, BookOpen, ClipboardList, TrendingUp } from "lucide-react";
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState("home");
@@ -24,7 +27,7 @@ const Index = () => {
             </div>
             
             <Tabs value={activeTab} onValueChange={setActiveTab} className="w-auto">
-              <TabsList className="grid w-full grid-cols-4">
+              <TabsList className="grid w-full grid-cols-6">
                 <TabsTrigger value="home" className="flex items-center gap-2">
                   <Home className="h-4 w-4" />
                   <span className="hidden sm:inline">Home</span>
@@ -33,13 +36,21 @@ const Index = () => {
                   <BarChart3 className="h-4 w-4" />
                   <span className="hidden sm:inline">Dashboard</span>
                 </TabsTrigger>
+                <TabsTrigger value="platform" className="flex items-center gap-2">
+                  <BookOpen className="h-4 w-4" />
+                  <span className="hidden sm:inline">Courses</span>
+                </TabsTrigger>
                 <TabsTrigger value="upload" className="flex items-center gap-2">
                   <Upload className="h-4 w-4" />
                   <span className="hidden sm:inline">Upload</span>
                 </TabsTrigger>
-                <TabsTrigger value="chat" className="flex items-center gap-2">
-                  <MessageSquare className="h-4 w-4" />
-                  <span className="hidden sm:inline">AI Chat</span>
+                <TabsTrigger value="assessment" className="flex items-center gap-2">
+                  <ClipboardList className="h-4 w-4" />
+                  <span className="hidden sm:inline">Tests</span>
+                </TabsTrigger>
+                <TabsTrigger value="analytics" className="flex items-center gap-2">
+                  <TrendingUp className="h-4 w-4" />
+                  <span className="hidden sm:inline">Analytics</span>
                 </TabsTrigger>
               </TabsList>
             </Tabs>
@@ -61,8 +72,20 @@ const Index = () => {
           <StudyDashboard />
         </TabsContent>
         
+        <TabsContent value="platform" className="mt-0">
+          <LearningPlatform />
+        </TabsContent>
+        
         <TabsContent value="upload" className="mt-0">
           <DocumentUploader />
+        </TabsContent>
+        
+        <TabsContent value="assessment" className="mt-0">
+          <AssessmentPlatform />
+        </TabsContent>
+        
+        <TabsContent value="analytics" className="mt-0">
+          <AnalyticsDashboard />
         </TabsContent>
         
         <TabsContent value="chat" className="mt-0">
